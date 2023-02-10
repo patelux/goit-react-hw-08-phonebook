@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import PropTypes from 'prop-types';
 import css from './PhonebookForm.module.css';
 
 
@@ -25,6 +26,7 @@ export class PhonebookForm extends Component {
     this.props.onSubmit(this.state);
     this.resetForm();
   };
+
   render() {
     return (
       <>
@@ -57,3 +59,7 @@ export class PhonebookForm extends Component {
     );
   }
 }
+
+PhonebookForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};
