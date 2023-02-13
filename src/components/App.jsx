@@ -42,8 +42,8 @@ export class App extends Component {
   componentDidMount() {
     const savedContacts = storage.load('contacts-list') ?? FRIENDS;
     console.log(savedContacts);
-    this.setState({ contacts: savedContacts });
-  }
+    if(savedContacts){this.setState({ contacts: savedContacts });}
+  };
 
   componentDidUpdate(_, prevState) {
     const { contacts } = this.state;
@@ -67,7 +67,7 @@ export class App extends Component {
     });
   };
 
-  
+
   handleFilter = ({ target: { value } }) => {
     this.setState({ filter: value });
   };
