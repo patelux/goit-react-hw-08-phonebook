@@ -10,7 +10,7 @@ import { ContactsList } from '../components/ContactsList/ContactsList';
 
 import css from '../components/PhonebookForm/PhonebookForm.module.css';
 
-const FRIENDS = [
+const DEFAULTCONTACTS = [
   {
     id: 'id-1',
     name: 'Rosie Simpson',
@@ -40,10 +40,10 @@ export class App extends Component {
   };
 
   componentDidMount() {
-    const savedContacts = storage.load('contacts-list') ?? FRIENDS;
-    console.log(savedContacts);
-    if(savedContacts){this.setState({ contacts: savedContacts });}
-  };
+    const savedContacts = storage.load('contacts-list') ?? DEFAULTCONTACTS;
+    // console.log(savedContacts);
+    this.setState({ contacts: savedContacts });
+  }
 
   componentDidUpdate(_, prevState) {
     const { contacts } = this.state;
