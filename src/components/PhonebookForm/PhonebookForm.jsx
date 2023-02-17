@@ -61,7 +61,7 @@ const inputChange = event => {
           <button type="submit" className={css.btnSubmit}>Add contact</button>
         </form>
       </>
-    );
+    )
 };
 
 
