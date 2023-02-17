@@ -1,41 +1,46 @@
-import { Component } from 'react';
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 import css from './PhonebookForm.module.css';
 
 
-export class PhonebookForm extends Component {
-  state = {
-    name: '',
-    number: '',
-  };
+export function PhonebookForm ({ onSubmit }) {
 
-  inputChange = event => {
+const [name, setName] = useState('');
+const [number, setNumber] = useState('');
+
+const inputChange = event => {
     const { name, value } = event.target;
-    this.setState({ [name]: value });
+    switch(name) {
+      case 'name':
+        setName(value);
+        break;
+      case 'number':
+        setNumber(value);
+        break;
+      default:
+        break;
+    }    
   };
 
-  resetForm = () => {
-    this.setState({
-      name: '',
-      number: '',
-    });
+  const resetForm = () => {
+    setName('');
+    setNumber('');
   };
 
-  handleSubmit = event => {
+  const handleSubmit = event => {
     event.preventDefault();
-    this.props.onSubmit(this.state);
-    this.resetForm();
+    onSubmit({name, number});
+    resetForm();
   };
 
-  render() {
     return (
       <>
-        <form onSubmit={this.handleSubmit} className={css.phonebookForm}>
+        <form onSubmit={handleSubmit} className={css.phonebookForm}>
           <h3 className={css.formTitle}>Name</h3>
           <input
             className={css.inputForm}            
-            onChange={this.inputChange}
-            value={this.state.name}
+            onChange={inputChange}
+            value={name}
             type="text"
             name="name"
             pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -45,8 +50,8 @@ export class PhonebookForm extends Component {
           <h3 className={css.formTitle}>Number</h3>
           <input
             className={css.inputForm}     
-            onChange={this.inputChange}
-            value={this.state.number}
+            onChange={inputChange}
+            value={number}
             type="tel"
             name="number"
             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
@@ -57,8 +62,8 @@ export class PhonebookForm extends Component {
         </form>
       </>
     );
-  }
-}
+};
+
 
 PhonebookForm.propTypes = {
   onSubmit: PropTypes.func.isRequired,
