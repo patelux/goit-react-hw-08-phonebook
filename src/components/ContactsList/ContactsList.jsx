@@ -11,7 +11,7 @@ export const ContactsList = () => {
 return (
 <>
   {(contacts.length === 0) ? (
-    <p class={css.phonebookInfoMessage}>No contacts in phonebook</p>
+    <p class={css.phonebookInfoMessage}>No contacts found in phonebook</p>
   ) : (
     <ul>
         {contacts.map(({ name, number, id }) => {
