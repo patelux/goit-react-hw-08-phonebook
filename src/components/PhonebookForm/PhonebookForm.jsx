@@ -1,14 +1,21 @@
+// import { useState } from 'react';
+// import PropTypes from 'prop-types';
 import { useState } from 'react';
-import PropTypes from 'prop-types';
-import css from './PhonebookForm.module.css';
-
+import { useDispatch } from 'react-redux';
+import { addContact } from 'redux/contactsSlice';
+import { nanoid } from 'nanoid';
+import { getContacts } from 'redux/selectors';
+import { useSelector } from 'react-redux';
+import css from '../../styles/Contacts.module.css';
 
 export function PhonebookForm ({ onSubmit }) {
 
-const [name, setName] = useState('');
-const [number, setNumber] = useState('');
+  const dispatch = useDispatch();
+  const contacts = useSelector(getContacts);
+  const [name, setName] = useState('');
+  const [number, setNumber] = useState('');
 
-const inputChange = event => {
+  const inputChange = event => {
     const { name, value } = event.target;
     switch(name) {
       case 'name':
@@ -29,7 +36,17 @@ const inputChange = event => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    onSubmit({name, number});
+    const isExist = contacts.find(contact => {
+      return contact.name === name;
+    });
+    if (isExist) {
+      alert('This friend is existed!!!!');
+      return;
+    }
+
+    dispatch(addContact({ name, number, id: nanoid() }));
+    // onSubmit({name, number});
+
     resetForm();
   };
 
@@ -64,7 +81,3 @@ const inputChange = event => {
     );
 };
 
-
-PhonebookForm.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
-};

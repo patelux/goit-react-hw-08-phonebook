@@ -3,21 +3,21 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   items: [],
 };
-const friendSlice = createSlice({
+const contactSlice = createSlice({
   // Имя слайса
-  name: 'friends',
+  name: 'contacts',
   // Начальное состояние редюсера слайса
   initialState,
   // Объект редюсеров
   reducers: {
-    addFriend(state, { payload }) {
+    addContact(state, { payload }) {
       state.items = [...state.items, payload];
     },
-    deleteFriend(state, { payload }) {
+    deleteContact(state, { payload }) {
       state.items = state.items.filter(item => item.id !== payload);
     },
   },
 });
 
-export const { addFriend, deleteFriend } = friendSlice.actions;
-export const friendReducer = friendSlice.reducer;
+export const { addContact, deleteContact } = contactSlice.actions;
+export const contactReducer = contactSlice.reducer;
