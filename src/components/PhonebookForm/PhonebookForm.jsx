@@ -1,5 +1,3 @@
-// import { useState } from 'react';
-// import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addContact } from 'redux/contactsSlice';
@@ -45,7 +43,6 @@ export function PhonebookForm ({ onSubmit }) {
     }
 
     dispatch(addContact({ name, number, id: nanoid() }));
-    // onSubmit({name, number});
 
     resetForm();
   };

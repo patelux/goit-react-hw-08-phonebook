@@ -4,11 +4,11 @@ const initialState = {
   items: [],
 };
 const contactSlice = createSlice({
-  // Имя слайса
+
   name: 'contacts',
-  // Начальное состояние редюсера слайса
+
   initialState,
-  // Объект редюсеров
+
   reducers: {
     addContact(state, { payload }) {
       state.items = [...state.items, payload];
