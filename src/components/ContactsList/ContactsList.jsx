@@ -9,7 +9,11 @@ export const ContactsList = () => {
   const dispatch = useDispatch();
 
 return (
-      <ul>
+<>
+  {(contacts.length === 0) ? (
+    <p class={css.phonebookInfoMessage}>No contacts in phonebook</p>
+  ) : (
+    <ul>
         {contacts.map(({ name, number, id }) => {
         return (
           <li key={name} className={css.phonebookList}>
@@ -19,7 +23,10 @@ return (
           </li>
         );
         })}
-      </ul>
+      </ul> 
+    )}
+</>
+
     );
 };
 
