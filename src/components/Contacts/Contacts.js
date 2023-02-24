@@ -1,12 +1,15 @@
 import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { addFilter } from 'redux/filterSlice';
-
+import { getFilteredContacts } from 'redux/selectors';
 import {PhonebookForm} from '../PhonebookForm/PhonebookForm.jsx';
 import {ContactsList}  from '../ContactsList/ContactsList';
 
 import css from '../../styles/Contacts.module.css';
 
 export function Contacts () {
+
+const contacts = useSelector(getFilteredContacts);
 const dispatch = useDispatch();
     return (
     <>
@@ -21,8 +24,11 @@ const dispatch = useDispatch();
             <input type="text" name="filter" className={css.inputFilterForm} onChange={event => dispatch(addFilter(event.target.value))} />
           </div>
         </div>
-
-        <ContactsList />
+        {(contacts.length === 0) ? (
+    <p class={css.phonebookInfoMessage}>No contacts found in phonebook</p>
+  ) : ( 
+  <ContactsList />
+  )} 
     </>
     );
 }
