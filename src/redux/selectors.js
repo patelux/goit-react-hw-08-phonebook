@@ -12,3 +12,5 @@ export const getFilteredContacts = createSelector(
     );
   }
 );
+
+export const getIsLoading = state => state.contacts.isLoading;

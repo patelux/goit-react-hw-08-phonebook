@@ -1,14 +1,16 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addContact } from 'redux/contactsSlice';
-import { nanoid } from 'nanoid';
-import { getContacts } from 'redux/selectors';
 import { useSelector } from 'react-redux';
+
+import { addContact } from 'redux/operations';
+import { getContacts } from 'redux/selectors';
+
 import css from '../../styles/Contacts.module.css';
 
 export function PhonebookForm ({ onSubmit }) {
 
   const dispatch = useDispatch();
+
   const contacts = useSelector(getContacts);
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
@@ -34,6 +36,7 @@ export function PhonebookForm ({ onSubmit }) {
 
   const handleSubmit = event => {
     event.preventDefault();
+
     const isExist = contacts.find(contact => {
       return contact.name === name;
     });
@@ -42,7 +45,7 @@ export function PhonebookForm ({ onSubmit }) {
       return;
     }
 
-    dispatch(addContact({ name, number, id: nanoid() }));
+    dispatch(addContact({ name, number }));
 
     resetForm();
   };
