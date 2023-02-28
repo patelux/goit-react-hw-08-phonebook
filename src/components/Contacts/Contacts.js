@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 
 import { addFilter } from 'redux/filterSlice';
-import { getContacts } from 'redux/operations';
+import { fetchContacts } from 'redux/operations';
 import { getIsLoading } from 'redux/selectors';
 import { getFilteredContacts } from 'redux/selectors';
 import { PhonebookForm } from '../PhonebookForm/PhonebookForm.jsx';
@@ -17,7 +17,7 @@ export function Contacts() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getContacts());
+    dispatch(fetchContacts());
   }, [dispatch]);
 
   return (

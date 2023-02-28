@@ -1,7 +1,7 @@
 import React from 'react';
 import { Oval } from 'react-loader-spinner';
 
-export default function Loader() {
+export function Loader () {
   return (
     <>
       <Oval

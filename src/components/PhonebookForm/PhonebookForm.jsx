@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 
 import { addContact } from 'redux/operations';
-import { getContacts } from 'redux/selectors';
+import { fetchContacts } from 'redux/selectors';
 
 import css from '../../styles/Contacts.module.css';
 
@@ -11,7 +11,7 @@ export function PhonebookForm ({ onSubmit }) {
 
   const dispatch = useDispatch();
 
-  const contacts = useSelector(getContacts);
+  const contacts = useSelector(fetchContacts);
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 

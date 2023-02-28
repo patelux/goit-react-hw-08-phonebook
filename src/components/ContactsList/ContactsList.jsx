@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 
 import { getFilteredContacts } from 'redux/selectors';
-import { deleteContacts } from 'redux/operations';
+import { deleteContact } from 'redux/operations';
 
 import css from '../../styles/Contacts.module.css';
 
@@ -10,7 +10,7 @@ export const ContactsList = () => {
   const contacts = useSelector(getFilteredContacts);
   const dispatch = useDispatch();
   const handleDelete = (id) => {
-    dispatch(deleteContacts(id));
+    dispatch(deleteContact(id));
   };
 
 return (
