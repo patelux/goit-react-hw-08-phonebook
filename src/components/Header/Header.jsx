@@ -1,32 +1,15 @@
-import { Outlet } from 'react-router-dom';
-import { Container } from 'components/App/App.styled';
+import { Outlet, NavLink } from 'react-router-dom';
+import { useAuth } from '../hooks/useAuth';
+import { UserMenu } from '../UserMenu/UserMenu';
+import { AuthNav } from '../AuthNav/AuthNav';
 
-import {
-  HeaderWrapper,
-  LinkWrapper,
-  NavBar,
-  NavLinkStyled,
-} from './Header.styled';
-
-export default function Header()  {
-
+export const Header = () => {
+  const { isLoggedIn } = useAuth();
   return (
-    <>
-      <NavBar>
-        <Container>
-          <HeaderWrapper>
-            <LinkWrapper>
-            <NavLinkStyled to="/">Home</NavLinkStyled>
-            <NavLinkStyled to="/login">Login</NavLinkStyled>
-            <NavLinkStyled to="/register">Register</NavLinkStyled>
-            <NavLinkStyled to="/contacts">Phonebook</NavLinkStyled>
-            </LinkWrapper>
-          </HeaderWrapper>
-        </Container>
-      </NavBar>
-      <main>
-        <Outlet />
-      </main>
-    </>
+    <div>
+      <NavLink to="/home">Back to start page</NavLink>
+      {isLoggedIn ? <UserMenu /> : <AuthNav />}      
+      <Outlet />
+    </div>
   );
 };
