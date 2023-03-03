@@ -54,7 +54,7 @@
     border-bottom: 1px solid #2a363b;
   }
   .username {
-    /* display: flex; */
+
     text-align: center;
     margin-left: auto;
     margin-right: auto;
@@ -63,6 +63,7 @@
   
 .phonebookTitle {
     font-family: 'Times New Roman', Times, serif;
+    font-size: 28px;
     font-weight: 900;
     font-size: 30px;
     line-height: 1.13;

@@ -4,7 +4,7 @@ export function Home() {
     return (
       <div>
        
-       <h2 className={css.phonebookTitle}>Please Login to open Contact Book</h2>
+       <h2 className={css.phonebookTitle}>Please Log in to Open Contact book</h2>
  
       </div>
     );
