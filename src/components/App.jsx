@@ -9,9 +9,11 @@ import { Contacts } from '../pages/Contacts/Contacts';
 import { refreshUser } from '../redux/user/operations';
 import { RestrictedRoute } from '../components/RestrictedRoute';
 import { PrivateRoute } from '../components/PrivateRoute';
+import { useAuth } from '../components/hooks/useAuth';
 
 export const App = () => {
   const dispatch = useDispatch();
+  const { isRefreshing } = useAuth();
 
   useEffect(() => {
     dispatch(refreshUser());
