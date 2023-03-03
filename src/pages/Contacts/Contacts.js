@@ -6,10 +6,10 @@ import { getIsLoading } from 'redux/selectors';
 import { getFilteredContacts } from 'redux/selectors';
 import { getContacts } from '../../redux/contacts/operations';
 
-import { ContactForm } from '../ContactForm/ContactForm';
-import { ContactsList } from '../ContactsList/ContactsList';
+import { ContactForm } from '../../components/ContactForm/ContactForm';
+import { ContactsList } from '../../components/ContactsList/ContactsList';
 
-import { Loader } from '../Loader/Loader';
+import { Loader } from '../../components/Loader/Loader';
 
 import css from '../../styles/Contacts.module.css';
 

@@ -4,7 +4,7 @@ export function Home() {
     return (
       <div>
        
-       <h2>HOME PAGE</h2>
+       <h2>Please Login to open Contact Book</h2>
  
       </div>
     );
