@@ -21,10 +21,10 @@ export const App = () => {
     <Routes>
       <Route path="/" element={<Header />}>
         <Route index />
-        <Route path="/register" element={
+        <Route path="register" element={
             <RestrictedRoute redirectTo="/contacts" component={<Register />} />
           } /> 
-         <Route path="/login" element={
+         <Route path="login" element={
             <RestrictedRoute redirectTo="/contacts" component={<Login />} />
           } />
       <Route path="/contacts" element={<PrivateRoute redirectTo="/login" component={<Contacts />} />}/>
