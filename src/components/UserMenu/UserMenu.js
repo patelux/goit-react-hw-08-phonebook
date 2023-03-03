@@ -12,7 +12,7 @@ export const UserMenu = () => {
     dispatch(logOut());
   };
   return (
-    <div classname={css.wrapperUserMenu}>
+    <div className={css.wrapper}>
         <NavLink className={css.link} to="/contacts">← Contact book</NavLink>
         <p classname={css.username}>Welcome, {user.name}</p>
         <button className={css.btnLogout} type="button" onClick={handleLogout}> LogOut

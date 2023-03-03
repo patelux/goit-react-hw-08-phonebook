@@ -38,7 +38,7 @@
   }
    
   .wrapper {
-    display: flexbox;
+    display: flex;
     align-items: center;
     justify-content: baseline;
     gap: 18px;
@@ -54,7 +54,7 @@
     border-bottom: 1px solid #2a363b;
   }
   .username {
-    display: flex;
+    /* display: flex; */
     text-align: center;
     margin-left: auto;
     margin-right: auto;
@@ -161,7 +161,7 @@
     display: flex;
 
    /* margin-left: auto; */
-   margin-bottom: 16px;
+   /* margin-bottom: 16px; */
 
     color:  #FFF;
     background-color: #2196F3;
