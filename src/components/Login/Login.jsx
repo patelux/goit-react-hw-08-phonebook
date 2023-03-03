@@ -1,5 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { login } from 'redux/user/operations';
+import css from '../../styles/Contacts.module.css';
 
 export const Login = () => {
   const dispatch = useDispatch();
@@ -16,9 +17,15 @@ export const Login = () => {
   };
   return (
     <form onSubmit={handelSubmit}>
-      <input type="email" name="email" />
-      <input type="password" name="password" />
-      <button type="submit">Login</button>
+      <label className={css.label}>
+        Email
+        <input className={css.inputForm} type="email" name="email" />
+      </label>
+      <label className={css.label}>
+        Password
+        <input  className={css.inputForm} type="password" name="password" />
+      </label>
+      <button className={css.btnSubmit} type="submit">Log In</button>
     </form>
   );
 };
