@@ -30,7 +30,7 @@
     color: #a71313;
 }
 
-.link:active {
+.link.active {
     color: #a71313;
     border-bottom: 1px solid #a71313;
     transform: scale(1);
